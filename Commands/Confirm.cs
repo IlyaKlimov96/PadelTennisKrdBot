@@ -23,7 +23,7 @@ namespace PadelTennisKrdBot.Commands
             }
 
             using PadelTennisDbContext context = await AppData.PadelDbContextFactoty.CreateDbContextAsync();
-            int gameId = int.Parse(callbackQuery.Data.Replace(Command, string.Empty));
+            int gameId = int.Parse(callbackQuery.Data!.Replace(Command, string.Empty));
             Game? game = context.Games.Include(x => x.Players).FirstOrDefault(x => x.Id == gameId);
             if (game != null)
             {
