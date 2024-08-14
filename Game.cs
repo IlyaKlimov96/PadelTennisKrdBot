@@ -16,6 +16,6 @@ namespace PadelTennisKrdBot
 
         public Game(DateTime date) => Date = date;
 
-        public new string ToString() => $"{Date.ToString("dd.MM")} ({Date.DayOfWeek.ToStringRu()}) - Корт #{CourtNumber}";
+        public new string ToString() => $"{Date:dd.MM} ({Date.DayOfWeek.ToStringRu()}) - Корт #{CourtNumber}";
     }
 }

@@ -1,6 +1,7 @@
 ﻿using PadelTennisKrdBot.Commands;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 
 namespace PadelTennisKrdBot
@@ -10,9 +11,17 @@ namespace PadelTennisKrdBot
         private static Dictionary<long, TgBotCommand.TgBotCommand> _userHandlers = new Dictionary<long, TgBotCommand.TgBotCommand>();
         internal static Task UpdateHandler(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            long userId = update.Type == Telegram.Bot.Types.Enums.UpdateType.Message ?
+            long userId = update.Type == UpdateType.Message ?
                 update.Message!.From!.Id : update.CallbackQuery!.From.Id;
-
+#if DEBUG
+            if (userId.ToString() != AppData.AdminId)
+            {
+                if (update.Type == UpdateType.CallbackQuery)
+                    botClient.AnswerCallbackQueryAsync(update.CallbackQuery!.Id);
+                botClient.SendTextMessageAsync(userId, "Бот на техобслуживании");
+                return Task.CompletedTask;
+            }
+#endif
             if (!_userHandlers.TryGetValue(userId, out var handler))
             {
                 handler = new CreatePoll();

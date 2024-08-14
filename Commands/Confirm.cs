@@ -49,7 +49,7 @@ namespace PadelTennisKrdBot.Commands
                     else botClient.AnswerCallbackQueryAsync(callbackQuery.Id, "Нет мест");
                 }
                 context.SaveChangesAsync();
-                InlineKeyboardButton button = callbackQuery.Message.ReplyMarkup.InlineKeyboard.First().First();
+                InlineKeyboardButton button = callbackQuery.Message!.ReplyMarkup!.InlineKeyboard.First().First();
                 InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup
                     (
                         new List<InlineKeyboardButton[]>

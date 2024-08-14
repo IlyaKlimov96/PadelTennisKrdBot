@@ -32,7 +32,7 @@ namespace PadelTennisKrdBot.Commands
                 foreach (Game game in games)
                 {
                     stringBuilder.AppendLine($"{++i}) {game.ToString()}");
-                    foreach (Player player in game.Players) stringBuilder.AppendLine("     " + player.ToTgHtmlLink());
+                    foreach (Player player in game.Players) stringBuilder.AppendLine($"     {player.ToTgHtmlLink()}");
                 }
                 botClient.SendTextMessageAsync(message.Chat.Id, stringBuilder.ToString(), parseMode: Telegram.Bot.Types.Enums.ParseMode.Html);
             }
