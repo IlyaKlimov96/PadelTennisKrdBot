@@ -28,6 +28,7 @@ namespace PadelTennisKrdBot
         }
 
         public string FullName => FirstName + (LastName is null ? string.Empty : " " + LastName);
+
         public string ToTgHtmlLink() => $"<a href=\"tg://user?id={Id}\">{FullName}</a>";
     }
 }
