@@ -18,7 +18,8 @@ class Program
         alarm.TimeHasCome += (object sender, DateTime date, object? state) => TgBot.CreatePoll();
 
         using (PadelTennisDbContext context = await AppData.PadelDbContextFactoty.CreateDbContextAsync())
-            foreach (PadelTennisKrdBot.Game game in context.Games.AsNoTracking().Include(x => x.Players)) AlarmManager.AddAlarm(game);
+            foreach (PadelTennisKrdBot.Game game in context.Games.AsNoTracking().Include(x => x.Players))
+                AlarmManager.AddAlarm(game);
 
         ReceiverOptions options = new ReceiverOptions()
         {

@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TgBotCommand", "..\TelegramBotCommand\TgBotCommand.csproj", "{8E9B9487-FF3E-453E-9A9F-A42ADFD70151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeHelper", "..\TimeHelper\TimeHelper.csproj", "{51A12704-8D11-4547-BD8B-C3968B5C8646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeHelper", "..\TimeHelper\TimeHelper.csproj", "{78758ADA-ACE9-4205-9118-C0326ED7E2B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +28,10 @@ Global
 		{8E9B9487-FF3E-453E-9A9F-A42ADFD70151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E9B9487-FF3E-453E-9A9F-A42ADFD70151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E9B9487-FF3E-453E-9A9F-A42ADFD70151}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51A12704-8D11-4547-BD8B-C3968B5C8646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51A12704-8D11-4547-BD8B-C3968B5C8646}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51A12704-8D11-4547-BD8B-C3968B5C8646}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51A12704-8D11-4547-BD8B-C3968B5C8646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78758ADA-ACE9-4205-9118-C0326ED7E2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78758ADA-ACE9-4205-9118-C0326ED7E2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78758ADA-ACE9-4205-9118-C0326ED7E2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78758ADA-ACE9-4205-9118-C0326ED7E2B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,7 +40,7 @@ namespace PadelTennisKrdBot
         static AppData()
         {
             DbContextOptions<PadelTennisDbContext> options = new DbContextOptionsBuilder<PadelTennisDbContext>().UseSqlite(ConnectionString).Options;
-            PadelDbContextFactoty = new PooledDbContextFactory<PadelTennisDbContext>(options, 20);
+            PadelDbContextFactoty = new PooledDbContextFactory<PadelTennisDbContext>(options, 10);
         }
     }
 }
