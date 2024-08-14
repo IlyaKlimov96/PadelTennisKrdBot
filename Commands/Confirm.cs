@@ -18,7 +18,7 @@ namespace PadelTennisKrdBot.Commands
         {
             if (!CheckCommand(botClient, callbackQuery))
             {
-                Succsessor.Handle(botClient, callbackQuery);
+                Succsessor?.Handle(botClient, callbackQuery);
                 return;
             }
 
