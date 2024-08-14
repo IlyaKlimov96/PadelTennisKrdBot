@@ -7,10 +7,10 @@ namespace PadelTennisKrdBot
 {
     internal static class Handler
     {
-        private static Dictionary<string, TgBotCommand.TgBotCommand> _userHandlers = new Dictionary<string, TgBotCommand.TgBotCommand>();
+        private static Dictionary<long, TgBotCommand.TgBotCommand> _userHandlers = new Dictionary<long, TgBotCommand.TgBotCommand>();
         internal static Task UpdateHandler(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            string userId = update.Type == Telegram.Bot.Types.Enums.UpdateType.Message ? update.Message!.From!.Id.ToString() : update.CallbackQuery!.From.Id.ToString();
+            long userId = update.Type == Telegram.Bot.Types.Enums.UpdateType.Message ? update.Message!.From!.Id : update.CallbackQuery!.From.Id;
 
             if (!_userHandlers.TryGetValue(userId, out var handler))
             {
