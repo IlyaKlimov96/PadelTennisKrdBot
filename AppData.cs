@@ -18,14 +18,14 @@ namespace PadelTennisKrdBot
     {
         private static string _botName = null!;
 
-        internal static string ChatId => ConfigurationManager.AppSettings.Get("Chat")!;
-        internal static DayOfWeek DayOfPoll => (DayOfWeek)int.Parse(ConfigurationManager.AppSettings.Get("DayOfPoll")!);
-        internal static string AdminId => ConfigurationManager.AppSettings.Get("Admin")!;
+        internal static string ChatId { get; } = ConfigurationManager.AppSettings.Get("Chat")!;
+        internal static DayOfWeek DayOfPoll { get; } = (DayOfWeek)int.Parse(ConfigurationManager.AppSettings.Get("DayOfPoll")!);
+        internal static string AdminId { get; } = ConfigurationManager.AppSettings.Get("Admin")!;
         internal static ITelegramBotClient BotClient { get; } = new TelegramBotClient(ConfigurationManager.AppSettings.Get("BotToken")!);
 #if DEBUG
-        internal static string ConnectionString => "Data Source=D:\\SQLite\\PadelTennis.db;Mode=ReadWrite;";
+        internal static string ConnectionString { get; } = "Data Source=D:\\SQLite\\PadelTennis.db;Mode=ReadWrite;";
 #else
-        internal static string ConnectionString => ConfigurationManager.AppSettings.Get("ConnectionString")!;
+        internal static string ConnectionString { get; } = ConfigurationManager.AppSettings.Get("ConnectionString")!;
 #endif
         internal static PooledDbContextFactory<PadelTennisDbContext> PadelDbContextFactoty { get; }
         internal static string BotName
