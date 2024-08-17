@@ -9,11 +9,14 @@ using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Telegram.Bot.Types;
+using System.Globalization;
 
 class Program
 {
     static async Task Main()
     {
+        CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
+
         Alarm alarm = new Alarm(DateTime.Now.GetNextDayOfWeek(AppData.DayOfPoll).AddHours(12), null, TimeSpan.FromDays(7));
         alarm.TimeHasCome += (object sender, DateTime date, object? state) => TgBot.CreatePoll();
 

@@ -16,20 +16,5 @@ namespace PadelTennisKrdBot
                 if (date.DayOfWeek == dayOfWeek) return date.Date;
             }
         }
-
-        public static string ToStringRu(this DayOfWeek dayOfWeek)
-        {
-            return dayOfWeek switch
-            {
-                DayOfWeek.Monday => "Понедельник",
-                DayOfWeek.Tuesday => "Вторник",
-                DayOfWeek.Wednesday => "Среда",
-                DayOfWeek.Thursday => "Чертверг",
-                DayOfWeek.Friday => "Пятница",
-                DayOfWeek.Saturday => "Суббота",
-                DayOfWeek.Sunday => "Воскресенье",
-                _ => string.Empty
-            };
-        }
     }
 }

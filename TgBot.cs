@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,12 @@ namespace PadelTennisKrdBot
                 DateTime day = monday.AddDays(i);
                 if (day.DayOfWeek == DayOfWeek.Saturday || day.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    days.Add($"{day.ToString("dd.MM")} {day.DayOfWeek.ToStringRu()} - утро");
-                    days.Add($"{day.ToString("dd.MM")} {day.DayOfWeek.ToStringRu()} - вечер");
+                    days.Add($"{day.ToString("dd.MM")} {day:dddd)} - утро");
+                    days.Add($"{day.ToString("dd.MM")} {day:dddd)} - вечер");
                 }
-                else days.Add($"{day.ToString("dd.MM")} {day.DayOfWeek.ToStringRu()}");
+                else days.Add($"{day.ToString("dd.MM")} {day:dddd)}");
             }
+
             AppData.BotClient.SendPollAsync(AppData.ChatId, "Когда играем?", options: days, allowsMultipleAnswers: true, isAnonymous: false);
         }
 

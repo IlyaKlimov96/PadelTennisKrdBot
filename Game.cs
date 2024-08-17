@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,6 @@ namespace PadelTennisKrdBot
 
         public Game(DateTime date) => Date = date;
 
-        public override string ToString() => $"{Date:dd.MM} ({Date.DayOfWeek.ToStringRu()}) - Корт #{CourtNumber}";
+        public override string ToString() => $"{Date:dd.MM} ({Date:dddd}) - Корт #{CourtNumber}";
     }
 }
