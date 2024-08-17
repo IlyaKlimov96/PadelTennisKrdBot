@@ -20,10 +20,10 @@ namespace PadelTennisKrdBot
                 DateTime day = monday.AddDays(i);
                 if (day.DayOfWeek == DayOfWeek.Saturday || day.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    days.Add($"{day.ToString("dd.MM")} {day:dddd)} - утро");
-                    days.Add($"{day.ToString("dd.MM")} {day:dddd)} - вечер");
+                    days.Add($"{day:dd.MM dddd} - утро");
+                    days.Add($"{day:dd.MM dddd} - вечер");
                 }
-                else days.Add($"{day.ToString("dd.MM")} {day:dddd)}");
+                else days.Add($"{day:dd.MM dddd}");
             }
 
             AppData.BotClient.SendPollAsync(AppData.ChatId, "Когда играем?", options: days, allowsMultipleAnswers: true, isAnonymous: false);
