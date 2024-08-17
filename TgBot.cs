@@ -24,7 +24,7 @@ namespace PadelTennisKrdBot
                 }
                 else days.Add($"{day.ToString("dd.MM")} {day.DayOfWeek.ToStringRu()}");
             }
-            AppData.BotClient.SendPollAsync(AppData.AdminId, "Когда играем?", options: days, allowsMultipleAnswers: true, isAnonymous: false);
+            AppData.BotClient.SendPollAsync(AppData.ChatId, "Когда играем?", options: days, allowsMultipleAnswers: true, isAnonymous: false);
         }
 
         internal static async Task SendReminder(int gameId)
