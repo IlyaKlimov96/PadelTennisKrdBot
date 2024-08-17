@@ -25,7 +25,6 @@ namespace PadelTennisKrdBot
                 }
                 else days.Add($"{day:dd.MM dddd}");
             }
-
             AppData.BotClient.SendPollAsync(AppData.ChatId, "Когда играем?", options: days, allowsMultipleAnswers: true, isAnonymous: false);
         }
 
@@ -40,7 +39,7 @@ namespace PadelTennisKrdBot
         {
             foreach (Player player in game.Players)
                 AppData.BotClient.SendTextMessageAsync(player.Id, 
-                    $"Завтра в {game.Date.ToString("HH:mm")} состоится игра на корте #{game.CourtNumber}");
+                    $"Завтра в {game.Date:HH:mm} состоится игра на корте #{game.CourtNumber}");
         }
     }
 }
