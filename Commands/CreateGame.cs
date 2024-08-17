@@ -25,15 +25,15 @@ namespace PadelTennisKrdBot.Commands
         {
             if (CheckCommand(botClient, message))
             {
-                botClient.SendTextMessageAsync(message.Chat.Id, "Пришлите дату (в формате дд.мм)");
+                botClient.SendTextMessageAsync(message.Chat.Id, $"Пришлите дату (в формате {CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern})");
                 _isWaitingDate = true;
             }
             else if (_isWaitingDate)
             {
                 _isWaitingDate = false;
-                if (DateTime.TryParse(message.Text + "." + DateTime.Now.Year, CultureInfo.CreateSpecificCulture("ru-RU"), out DateTime date))
+                if (DateTime.TryParse(message.Text, out DateTime date))
                 {
-                    botClient.SendTextMessageAsync(message.Chat.Id, "Пришлите время (в формате чч:мм)");
+                    botClient.SendTextMessageAsync(message.Chat.Id, $"Пришлите время (в формате {CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern})");
                     _date = date;
                     _isWaitingTime = true;
                 }
@@ -76,7 +76,7 @@ namespace PadelTennisKrdBot.Commands
                         (InlineKeyboardButton.WithCallbackData("Иду!", "/confirm" + _game.Id));
                     botClient.SendTextMessageAsync(message.Chat.Id, "Игра создана");
                     botClient.SendTextMessageAsync(AppData.ChatId,
-                        $"Корт #{courtNumber} забронирован на {_date!.Value.ToString("dd.MM HH:mm")}. Жми \"Иду\", чтобы подтвердить своё участие",
+                        $"Корт #{courtNumber} забронирован на {_date:dd.MM HH:mm}. Жми \"Иду\", чтобы подтвердить своё участие",
                         replyMarkup: inlineKeyboard);
                 }
                 else botClient.SendTextMessageAsync(message.Chat.Id, "Не удалось распознать номер корта");

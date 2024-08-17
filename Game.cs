@@ -17,6 +17,6 @@ namespace PadelTennisKrdBot
 
         public Game(DateTime date) => Date = date;
 
-        public override string ToString() => $"{Date:dd.MM (dddd)} - Корт #{CourtNumber}";
+        public override string ToString() => $"{Date:dd.MM HH:mm (dddd)} - Корт #{CourtNumber}";
     }
 }
