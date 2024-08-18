@@ -12,7 +12,7 @@ namespace PadelTennisKrdBot
         {
             for (int i = 1; ; i++)
             {
-                DateTime date = DateTime.Now.AddDays(i);
+                DateTime date = dateTime.AddDays(i);
                 if (date.DayOfWeek == dayOfWeek) return date.Date;
             }
         }
