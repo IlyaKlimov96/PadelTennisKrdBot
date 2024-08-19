@@ -21,6 +21,7 @@ namespace PadelTennisKrdBot.Commands
         {
             if (_isWaitingNumber)
             {
+                _isWaitingNumber = false;
                 if (int.TryParse(message.Text, out int id))
                 {
                     using PadelTennisDbContext context = await AppData.PadelDbContextFactoty.CreateDbContextAsync();
@@ -34,7 +35,6 @@ namespace PadelTennisKrdBot.Commands
                     else botClient.SendTextMessageAsync(message.Chat.Id, "Игра не найдена");
                 }
                 else botClient.SendTextMessageAsync(message.Chat.Id, "Не удалось распознать id игры");
-                _isWaitingNumber = false;
             }
             else if (CheckCommand(botClient, message))
             {
