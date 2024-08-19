@@ -47,7 +47,7 @@ namespace PadelTennisKrdBot.Commands
                     stringBuilder.AppendLine("Предстоящие игры:");
                     foreach (Game game in games)
                     {
-                        stringBuilder.AppendLine($"{game.Id}) {game.ToString()}");
+                        stringBuilder.AppendLine($"{game.Id} - {game}");
                     }
                     botClient.SendTextMessageAsync(message.Chat.Id, stringBuilder.ToString());
                     _isWaitingNumber = true;
