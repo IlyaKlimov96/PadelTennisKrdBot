@@ -31,6 +31,7 @@ namespace PadelTennisKrdBot.Commands
                         context.Games.Remove(game);
                         await context.SaveChangesAsync();
                         botClient.SendTextMessageAsync(message.Chat.Id, "Игра удалена");
+                        botClient.SendTextMessageAsync(AppData.ChatId, $"Игра {game} отменена");
                     }
                     else botClient.SendTextMessageAsync(message.Chat.Id, "Игра не найдена");
                 }
