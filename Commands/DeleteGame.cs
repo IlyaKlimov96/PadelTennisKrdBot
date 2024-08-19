@@ -38,11 +38,11 @@ namespace PadelTennisKrdBot.Commands
             }
             else if (CheckCommand(botClient, message))
             {
-                botClient.SendTextMessageAsync(message.Chat.Id, "Пришлите id игры");
                 using PadelTennisDbContext context = await AppData.PadelDbContextFactoty.CreateDbContextAsync();
                 List<Game> games = context.Games.AsNoTracking().Where(x => x.Date >= DateTime.Now.Date).OrderBy(x => x.Date).ToList();
                 if (games.Count > 0)
                 {
+                    botClient.SendTextMessageAsync(message.Chat.Id, "Пришлите id игры");
                     StringBuilder stringBuilder = new StringBuilder();
                     stringBuilder.AppendLine("Предстоящие игры:");
                     foreach (Game game in games)
